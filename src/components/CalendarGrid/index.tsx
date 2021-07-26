@@ -16,11 +16,13 @@ const styles = (theme: Theme) => createStyles({
 });
 
 interface Props extends WithStyles<typeof styles>{
-	date: Date
+	date: Date,
+	reminderList
+	
 }
 
 const CalendarGrid = (props: Props) => {
-	const { classes, date } = props;
+	const { classes, date, reminderList } = props;
 	const calendarCells = getMonthCells( date );
 	return (
 		<div className={ classes.calendarGrid }>
@@ -28,6 +30,7 @@ const CalendarGrid = (props: Props) => {
 			<MonthContainer
 				date={ date }
 				calendarCells={ calendarCells }
+				reminderList = {reminderList}
 			/>
 		</div>
 	)

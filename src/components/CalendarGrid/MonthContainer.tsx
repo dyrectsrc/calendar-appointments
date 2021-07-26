@@ -18,12 +18,16 @@ interface Props extends WithStyles<typeof styles>{
 		date: Date
 	}[],
 	date: Date,
+	reminderList
 }
 
 const MonthContainer = ( props: Props ) =>
 	<div className={ props.classes.monthContainer }>
+		{console.log(props)}
 		{ props.calendarCells.map( ( dateObj, i ) =>
-			<CalendarDayContainer key={ i } calendarDate={ props.date } dateObj={ dateObj } />
+		
+			<CalendarDayContainer key={ i } calendarDate={ props.date } dateObj={ dateObj } remindersList={props.reminderList}/>
+			
 		) }
 	</div>
 
